@@ -13,6 +13,16 @@
 #include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/io/zero_copy_stream_impl_lite.h"
 
+#if PY_MAJOR_VERSION >= 3
+  #define PyString_Check PyUnicode_Check
+  #if PY_VERSION_HEX < 0x03030000
+    #error "Python 3.0 - 3.2 are not supported."
+  #else
+  #define PyString_AsString(ob) \
+    (PyUnicode_Check(ob)? PyUnicode_AsUTF8(ob): PyBytes_AsString(ob))
+  #endif
+#endif
+
 namespace caffe2 {
 namespace python {
 
