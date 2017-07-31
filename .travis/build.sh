@@ -38,6 +38,10 @@ fi
 if [ "$BUILD_TESTS" = 'false' ]; then
     CMAKE_ARGS+=('-DBUILD_TEST=OFF')
 fi
+if [ -n "$PYTHON_EXECUTABLE" ]; then
+    CMAKE_ARGS+=('-DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE')
+fi
+
 cmake .. ${CMAKE_ARGS[*]}
 
 # Build

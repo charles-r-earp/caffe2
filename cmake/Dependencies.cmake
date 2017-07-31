@@ -208,8 +208,9 @@ endif()
 
 # ---[ Python + Numpy
 if(BUILD_PYTHON)
-  find_package(PythonInterp ${PYTHON_VERSION})
-  find_package(PythonLibs ${PYTHON_VERSION})
+  message("PYTHON_EXECUTABLE: ${PYTHON_EXECUTABLE}")
+  find_package(PythonInterp)
+  find_package(PythonLibs)
   find_package(NumPy REQUIRED)
   if(PYTHONINTERP_FOUND AND PYTHONLIBS_FOUND AND NUMPY_FOUND)
     include_directories(SYSTEM ${PYTHON_INCLUDE_DIRS} ${NUMPY_INCLUDE_DIR})

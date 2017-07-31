@@ -15,8 +15,8 @@ env:
     - BUILD=linux-mkl
     - BUILD=linux-android
   matrix:
-    - PYTHON_VERSION=2.7
-    - PYTHON_VERSION=3.5
+    - PYTHON_EXECUTABLE=/usr/bin/python2.7
+    - PYTHON_EXECUTABLE=/usr/bin/python3.5
 
 matrix:
   include:
