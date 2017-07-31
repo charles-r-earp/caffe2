@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 
 project(Caffe2 CXX C)
+set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 
 # TODO(bwasti): versioning
 
@@ -128,3 +129,5 @@ add_subdirectory(caffe/proto)
 add_subdirectory(caffe2)
 
 Caffe2_print_configuration_summary()
+
+message("INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")

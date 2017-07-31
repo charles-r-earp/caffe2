@@ -10,13 +10,11 @@ env:
     - BUILD_NINJA_DIR=~/build/ninja
   matrix:
     - BUILD=linux
+    - BUILD=linux
     - BUILD=linux-gcc5
     - BUILD=linux-cuda
     - BUILD=linux-mkl
     - BUILD=linux-android
-  matrix:
-    - PYTHON_EXECUTABLE=/usr/bin/python2.7
-    - PYTHON_EXECUTABLE=/usr/bin/python3.5
 
 matrix:
   include:
@@ -40,7 +38,8 @@ before_install:
   - source .travis/setup.sh
 
 install:
-  - ./.travis/install.sh
+#  - ./.travis/install.sh
+  - ./.travis/install-conda.sh
   - ./.travis/build.sh
 
 script:
