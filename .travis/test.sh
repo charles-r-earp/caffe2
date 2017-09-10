@@ -18,5 +18,9 @@ popd
 
 # Python tests
 export PYTHONPATH="${PYTHONPATH}:${ROOT_DIR}/install"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${ROOT_DIR}/install/lib"
-python -m pytest -v install/caffe2/python
+#export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${ROOT_DIR}/install/lib"
+cmd = python -m pytest -v install/caffe2/python
+# python2
+source activate python2 && "$cmd"
+# python3
+source activate python3 && "$cmd"
